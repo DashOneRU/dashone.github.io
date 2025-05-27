@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Мастерская DashOne</title>
+  <link rel="icon" href="../images/icon2.png" type="image/png">
+  <style>
+    @font-face {
+      font-family: 'Cantarell';
+      src: url('../fonts/Cantarell-VF.otf') format('opentype');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cantarell', sans-serif;
+      color: #000;
+      background: #fff;
+      line-height: 1.4;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background: #497559;
+      color: #fff;
+      border-radius: 12px;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    header .logo img {
+      height: 40px;
+	  margin-top: 5px;
+    }
+    nav {
+      display: flex;
+      gap: 25px;
+      position: relative;
+    }
+    nav a,
+    .dropdown > a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: #333;
+      border-radius: 8px;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .2s ease;
+      display: flex;
+      flex-direction: column;
+      white-space: nowrap;
+	  align-items: center;
+    }
+    .dropdown-content a {
+      color: #fff;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .hero {
+      text-align: center;
+      padding: 140px 20px 0px;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.2s;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.5s;
+    }
+	.hero p img {
+      width: 180px;
+    }
+	.hero2 {
+      text-align: center;
+      padding: 0px 20px 0px;
+    }
+    .hero2 h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.2s;
+    }
+    .hero2 p {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.5s;
+    }
+	.hero2 p img {
+      width: 180px;
+    }
+	.hero2 a {
+      text-decoration: none
+    }
+    .previews {
+      display: flex;
+      justify-content: center;
+	  flex-wrap: wrap;
+      gap: 30px;
+      padding: 40px 20px;
+	  position: relative;
+    }
+	.previews2 {
+      display: flex;
+      justify-content: center;
+	  flex-wrap: wrap;
+      gap: 30px;
+      padding: 20px 20px;
+	  position: relative;
+    }
+	.block {
+      background: #000;
+      width: 300px;
+      height: 200px;
+	  overflow: hidden;
+      flex-shrink: 0;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+    .block2 {
+      background: #000;
+      width: 450px;
+      height: 250px;
+	  overflow: hidden;
+      flex-shrink: 0;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+	.block2 img {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .block2:hover {
+      transform: scale(1.05);
+    }
+	.block img {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .block:hover {
+      transform: scale(1.05);
+    }
+    /* Подвал */
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+    footer hr {
+      border: none;
+      border-top: 1px solid #000;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto 10px;
+    }
+    footer p {
+      font-size: 14px;
+    }
+	footer img {
+      width: 24px;
+    }
+	footer a {
+      text-decoration: none
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="3dworkshop.html"><img src="../images/logo2.png" alt="DashOne Workshop Logo"></a>
+    </div>
+    <nav>
+      <div class="dropdown">
+        <a href="portfolio.html">Портфолио</a>
+      </div>
+      <a href="feedback.html">Отзывы</a>
+      <a href="../index.html">🏠︎</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>3D Мастерская</h1>
+    <p>Занимаемся 3D-печатью по технологии <b>FDM (Fused Deposition Modeling)</b> в г.Пермь и по всей России.<br>Разрабатываем модели в <b>«КОМПАС-3D»</b> и <b>«Blender»</b>, а также помогаем с их редактированием.<br><br><font color="#497559"><b>Обязательным условием для 3D-печати является наличие файла с 3D-моделью.</b></font><br> Если у вас есть готовая 3D-модель, тогда мы рассчитаем стоимость печати изделия по модели<br> и проверим ее на ошибки. Если модель отсутствует, но есть крутая идея, и вы хотите воплотить ee<br>в жизнь, то мы <b>создадим 3D-модель для вас по фото, чертежу, или даже простому текстовому описанию.</b></p><br>
+	<p><a href="https://t.me/dashone3d"><img src="../images/workshop/button.png" alt=Telegram></a></p>
+  </section>
+  <section class="previews">
+    <div class="block"><a href="../images/workshop/1.jpg"><img src="../images/workshop/1.jpg"></a></div>
+	<div class="block"><a href="../images/workshop/2.jpg"><img src="../images/workshop/2.jpg"></a></div>
+    <div class="block"><a href="../images/workshop/3.jpg"><img src="../images/workshop/3.jpg"></a></div>
+  </section>
+    <section class="hero2">
+    <p>Ознакомится с примерами наших работ вы можете на вкладке <a href="portfolio.html"><font color="#497559"><b>портфолио</b></font></a>,<br>а также вы можете ознакомится с <a href="feedback.html"><font color="#497559"><b>отзывами</b></font></a>.</b></p><br>
+	<h1>Прайс-лист</h1>
+	<p>Возможны неточности, наличие пластмассы определенного вида уточняйте при заказе.<br><b>Цены на создание и редактирование 3D моделей - индивидуальные!</b><br>Кликните, чтобы открыть изображение на весь экран.</p><br>
+  </section>
+  <section class="previews2">
+    <div class="block2"><a href="../images/workshop/price.png"><img src="../images/workshop/price.png"></a></div>
+  </section>
+  <section class="hero2">
+    <p><font color="#497559"><b>Дарим скидку 10% на первый заказ :)</b></font><br>
+  </section>
+  <footer>
+    <hr>
+	<p>Адрес для коммерческих запросов и предложений: <a href="mailto:showshinich@gmail.com">showshinich@gmail.com</a></p>
+	<p>DashOne RU © 2025</p>
+	<a href="https://www.youtube.com/@dashoneru"><img src="../images/youtube.webp" alt=YouTube></a>
+	<a href="https://t.me/dashone3d"><img src="../images/telegram.webp" alt=Telegram></a>
+  </footer>
+</body>
+</html>
