@@ -183,10 +183,37 @@
   </section>
 
   <section class="previews">
-    <div class="block"><iframe src="https://www.youtube.com/embed/zbIXdSReHoA" allowfullscreen></iframe></div>
-    <div class="block"><iframe src="https://www.youtube.com/embed/FBi9z8DZKIU" allowfullscreen></iframe></div>
-    <div class="block"><iframe src="https://www.youtube.com/embed/zbIXdSReHoA" allowfullscreen></iframe></div>
+    <div class="block">
+      <iframe
+        loading="lazy"
+        allowfullscreen
+        data-youtube="https://www.youtube.com/embed/zbIXdSReHoA"
+        data-youtube-id="zbIXdSReHoA"
+        data-rutube="https://rutube.ru/play/embed/477c461214ea35cb0fc6e5bb2bbf2478/">
+      </iframe>
+    </div>
+
+    <div class="block">
+      <iframe
+        loading="lazy"
+        allowfullscreen
+        data-youtube="https://www.youtube.com/embed/FBi9z8DZKIU"
+        data-youtube-id="FBi9z8DZKIU"
+        data-rutube="https://rutube.ru/play/embed/0bca4cf2af6e78fe77b6b23e67621ff7/">
+      </iframe>
+    </div>
+
+    <div class="block">
+      <iframe
+        loading="lazy"
+        allowfullscreen
+        data-youtube="https://www.youtube.com/embed/zbIXdSReHoA"
+        data-youtube-id="zbIXdSReHoA"
+        data-rutube="https://rutube.ru/play/embed/477c461214ea35cb0fc6e5bb2bbf2478/">
+      </iframe>
+    </div>
   </section>
+
   
   <footer>
     <hr>
@@ -195,6 +222,54 @@
 	<a href="https://www.youtube.com/@dashoneru"><img src="images/youtube.webp" alt=YouTube></a>
 	<a href="https://t.me/dashone3d"><img src="images/telegram.webp" alt=Telegram></a>
   </footer>
+  <script>
+	document.addEventListener('DOMContentLoaded', function () {
+	  const TIMEOUT = 2000;
+
+	  document.querySelectorAll('.previews .block iframe').forEach(iframe => {
+		const ytSrc = iframe.dataset.youtube || '';
+		const ytId = iframe.dataset.youtubeId || (ytSrc.split('/').pop() || '');
+		const rutubeSrc = iframe.dataset.rutube || '';
+
+		if (!ytSrc && !rutubeSrc) return;
+
+		const setIframeSrc = (src) => {
+		  iframe.src = src;
+		};
+
+		if (!ytId) {
+		  if (rutubeSrc) setIframeSrc(rutubeSrc);
+		  return;
+		}
+
+		const thumb = new Image();
+		let settled = false;
+		const timer = setTimeout(() => {
+		  if (!settled) {
+			settled = true;
+			if (rutubeSrc) setIframeSrc(rutubeSrc);
+		  }
+		}, TIMEOUT);
+
+		thumb.onload = function () {
+		  if (settled) return;
+		  settled = true;
+		  clearTimeout(timer);
+		  setIframeSrc(ytSrc);
+		};
+
+		thumb.onerror = function () {
+		  if (settled) return;
+		  settled = true;
+		  clearTimeout(timer);
+		  if (rutubeSrc) setIframeSrc(rutubeSrc);
+		};
+
+		thumb.src = 'https://i.ytimg.com/vi/' + encodeURIComponent(ytId) + '/hqdefault.jpg?__ts=' + Date.now();
+	  });
+	});
+</script>
+
 </body>
 </html>
 
