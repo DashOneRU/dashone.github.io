@@ -45,7 +45,7 @@
     }
     header .logo img {
       height: 40px;
-	  margin-top: 5px;
+      margin-top: 5px;
     }
     nav {
       display: flex;
@@ -79,7 +79,7 @@
       display: flex;
       flex-direction: column;
       white-space: nowrap;
-	  align-items: center;
+      align-items: center;
     }
     .dropdown-content a {
       color: #fff;
@@ -94,7 +94,7 @@
     }
     .hero {
       text-align: center;
-      padding: 140px 20px 60px;
+      padding: 140px 20px 18px;
     }
     .hero h1 {
       font-size: clamp(3rem, 8vw, 6rem);
@@ -110,24 +110,56 @@
       animation: fadeIn 1s ease forwards;
       animation-delay: 0.5s;
     }
+    .ny-label {
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      margin-top: 18px;
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.65s;
+      font-weight: 600;
+    }
+    .ny-timer {
+      font-size: 2rem;
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.75s;
+      display: inline-flex;
+      gap: 18px;
+      white-space: nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .ny-timer .unit {
+      display: inline-flex;
+      gap: 6px;
+      align-items: baseline;
+      min-width: 1ch;
+    }
+    .ny-timer .num {
+      min-width: 36px;
+      display: inline-block;
+      text-align: center;
+    }
     .previews {
       display: flex;
       justify-content: center;
-	  flex-wrap: wrap;
-      gap: 30px;
-      padding: 40px 20px;
-	  position: relative;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 20px 20px 40px;
+      position: relative;
     }
     .block {
       background: #000;
       width: 300px;
       height: 200px;
-	  overflow: hidden;
+      overflow: hidden;
       flex-shrink: 0;
       border-radius: 12px;
       transition: transform 0.3s ease;
     }
-	.block iframe {
+    .block iframe {
       width: 100%;
       height: 100%;
       border: none;
@@ -135,7 +167,6 @@
     .block:hover {
       transform: scale(1.05);
     }
-    /* Подвал */
     footer {
       text-align: center;
       padding: 20px;
@@ -150,14 +181,33 @@
     footer p {
       font-size: 14px;
     }
-	footer img {
+    footer img {
       width: 24px;
     }
-	footer a {
-      text-decoration: none
+    footer a {
+      text-decoration: none;
+    }
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 3px rgba(0,0,0,0.6));
+      opacity: 0.9;
+      z-index: 999;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="logo">
@@ -167,47 +217,44 @@
       <div class="dropdown">
         <a href="pages/projects.html">Проекты</a>
         <div class="dropdown-content">
-          <a href="pages/prj/mac.html">Macintosh 128K</a>
-		  <a href="pages/prj/pd.html">PicoDoom</a>
-		  <a href="pages/prj/db.html">DashBoard</a>
-		  <a href="pages/projects.html">▼</a>
+          <a href="pages/prj/mac.html">Macintosh 128K</a>
+          <a href="pages/prj/pd.html">PicoDoom</a>
+          <a href="pages/prj/db.html">DashBoard</a>
+          <a href="pages/projects.html">▼</a>
         </div>
       </div>
-	  <div class="dropdown">
-		  <a href="pages/products.html">Продукция</a>
-			<div class="dropdown-content">
-				<a href="pages/3dworkshop.html">3D Печать</a>
-				<a href="pages/market.html">Наши товары</a>
-		  </div>
-	  </div>
-      <a href="pages/about.html">О нас</a>
+      <div class="dropdown">
+        <a href="pages/products.html">Продукция</a>
+        <div class="dropdown-content">
+          <a href="pages/3dworkshop.html">3D Печать</a>
+          <a href="pages/market.html">Наши товары</a>
+        </div>
+      </div>
+      <a href="pages/about.html">О нас</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>Добро пожаловать!</h1>
+    <h1>Добро пожаловать!</h1>
     <p>Здесь технологии встречаются с<br>бесконечностью идей…</p>
+
+    <h2 class="ny-label">До Нового 2026 года:</h2>
+
+    <div class="ny-timer" id="nyTimer">
+      <span class="unit"><span class="num" id="d">00</span><span>д</span></span>
+      <span class="unit"><span class="num" id="h">00</span><span>ч</span></span>
+      <span class="unit"><span class="num" id="m">00</span><span>м</span></span>
+      <span class="unit"><span class="num" id="s">00</span><span>с</span></span>
+    </div>
   </section>
 
   <section class="previews">
     <div class="block">
-      <iframe
-        loading="lazy"
-        allowfullscreen
-        data-youtube="https://www.youtube.com/embed/zbIXdSReHoA"
-        data-youtube-id="zbIXdSReHoA"
-        data-rutube="https://rutube.ru/play/embed/477c461214ea35cb0fc6e5bb2bbf2478/">
-      </iframe>
+      <iframe loading="lazy" allowfullscreen data-youtube="https://www.youtube.com/embed/zbIXdSReHoA" data-youtube-id="zbIXdSReHoA" data-rutube="https://rutube.ru/play/embed/477c461214ea35cb0fc6e5bb2bbf2478/"></iframe>
     </div>
 
     <div class="block">
-      <iframe
-        loading="lazy"
-        allowfullscreen
-        data-youtube="https://www.youtube.com/embed/FBi9z8DZKIU"
-        data-youtube-id="FBi9z8DZKIU"
-        data-rutube="https://rutube.ru/play/embed/0bca4cf2af6e78fe77b6b23e67621ff7/">
-      </iframe>
+      <iframe loading="lazy" allowfullscreen data-youtube="https://www.youtube.com/embed/FBi9z8DZKIU" data-youtube-id="FBi9z8DZKIU" data-rutube="https://rutube.ru/play/embed/0bca4cf2af6e78fe77b6b23e67621ff7/"></iframe>
     </div>
 
     <div class="block">
@@ -221,75 +268,91 @@
     </div>
   </section>
 
-  
   <footer>
     <hr>
-	<p>Адрес для коммерческих запросов и предложений: <a href="mailto:showshinich@gmail.com">showshinich@gmail.com</a></p>
-	<p>DashOne RU © 2025</p>
-	<a href="https://www.youtube.com/@dashoneru"><img src="images/youtube.webp" alt="YouTube"></a>
-	<a href="https://rutube.ru/channel/23543751/"><img src="images/rutube.webp" alt="RuTube"></a>
-	<a href="https://t.me/dashone3d"><img src="images/telegram.webp" alt="Telegram"></a>
+    <p>Адрес для коммерческих запросов и предложений: <a href="mailto:showshinich@gmail.com">showshinich@gmail.com</a></p>
+    <p>DashOne RU © 2025</p>
+    <a href="https://www.youtube.com/@dashoneru"><img src="images/youtube.webp" alt="YouTube"></a>
+    <a href="https://rutube.ru/channel/23543751/"><img src="images/rutube.webp" alt="RuTube"></a>
+    <a href="https://t.me/dashone3d"><img src="images/telegram.webp" alt="Telegram"></a>
   </footer>
+
   <script>
-	document.addEventListener('DOMContentLoaded', function () {
-	  const TIMEOUT = 2000;
+    document.addEventListener('DOMContentLoaded', function () {
+      const TIMEOUT = 2000;
+      document.querySelectorAll('.previews .block iframe').forEach(iframe => {
+        const ytSrc = iframe.dataset.youtube || '';
+        const ytId = iframe.dataset.youtubeId || (ytSrc.split('/').pop() || '');
+        const rutubeSrc = iframe.dataset.rutube || '';
+        if (!ytSrc && !rutubeSrc) return;
+        const setIframeSrc = (src) => {
+          iframe.src = src;
+        };
+        if (!ytId) {
+          if (rutubeSrc) setIframeSrc(rutubeSrc);
+          return;
+        }
+        const thumb = new Image();
+        let settled = false;
+        const timer = setTimeout(() => {
+          if (!settled) {
+            settled = true;
+            if (rutubeSrc) setIframeSrc(rutubeSrc);
+          }
+        }, TIMEOUT);
+        thumb.onload = function () {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          setIframeSrc(ytSrc);
+        };
+        thumb.onerror = function () {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          if (rutubeSrc) setIframeSrc(rutubeSrc);
+        };
+        thumb.src = 'https://i.ytimg.com/vi/' + encodeURIComponent(ytId) + '/hqdefault.jpg?__ts=' + Date.now();
+      });
+    });
 
-	  document.querySelectorAll('.previews .block iframe').forEach(iframe => {
-		const ytSrc = iframe.dataset.youtube || '';
-		const ytId = iframe.dataset.youtubeId || (ytSrc.split('/').pop() || '');
-		const rutubeSrc = iframe.dataset.rutube || '';
+    function updateTimer() {
+      const now = new Date();
+      const nextNY = new Date(now.getFullYear() + 1, 0, 1, 0, 0, 0);
+      const diff = nextNY - now;
+      const el = document.getElementById("nyTimer");
+      if (diff <= 0) {
+        el.innerHTML = '<span class="unit">С наступившим!</span>';
+        return;
+      }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      document.getElementById("d").textContent = String(d).padStart(2, "0");
+      document.getElementById("h").textContent = String(h).padStart(2, "0");
+      document.getElementById("m").textContent = String(m).padStart(2, "0");
+      document.getElementById("s").textContent = String(s).padStart(2, "0");
+    }
 
-		if (!ytSrc && !rutubeSrc) return;
+    setInterval(updateTimer, 1000);
+    updateTimer();
 
-		const setIframeSrc = (src) => {
-		  iframe.src = src;
-		};
+    function createSnowflake() {
+      const f = document.createElement("div");
+      f.className = "snowflake";
+      f.style.left = Math.random() * 100 + "vw";
+      const size = 3 + Math.random() * 4;
+      f.style.width = size + "px";
+      f.style.height = size + "px";
+      f.style.animationDuration = 4 + Math.random() * 6 + "s";
+      f.style.opacity = 0.7 + Math.random() * 0.3;
+      document.body.appendChild(f);
+      setTimeout(() => f.remove(), 10000);
+    }
 
-		if (!ytId) {
-		  if (rutubeSrc) setIframeSrc(rutubeSrc);
-		  return;
-		}
-
-		const thumb = new Image();
-		let settled = false;
-		const timer = setTimeout(() => {
-		  if (!settled) {
-			settled = true;
-			if (rutubeSrc) setIframeSrc(rutubeSrc);
-		  }
-		}, TIMEOUT);
-
-		thumb.onload = function () {
-		  if (settled) return;
-		  settled = true;
-		  clearTimeout(timer);
-		  setIframeSrc(ytSrc);
-		};
-
-		thumb.onerror = function () {
-		  if (settled) return;
-		  settled = true;
-		  clearTimeout(timer);
-		  if (rutubeSrc) setIframeSrc(rutubeSrc);
-		};
-
-		thumb.src = 'https://i.ytimg.com/vi/' + encodeURIComponent(ytId) + '/hqdefault.jpg?__ts=' + Date.now();
-	  });
-	});
-</script>
+    setInterval(createSnowflake, 120);
+  </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
