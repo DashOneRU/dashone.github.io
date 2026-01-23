@@ -45,7 +45,7 @@
     }
     header .logo img {
       height: 40px;
-	  margin-top: 5px;
+      margin-top: 5px;
     }
     nav {
       display: flex;
@@ -79,7 +79,7 @@
       display: flex;
       flex-direction: column;
       white-space: nowrap;
-	  align-items: center;
+      align-items: center;
     }
     .dropdown-content a {
       color: #fff;
@@ -109,10 +109,10 @@
       animation: fadeIn 1s ease forwards;
       animation-delay: 0.5s;
     }
-	.hero p img {
+    .hero p img {
       width: 180px;
     }
-	.hero2 {
+    .hero2 {
       text-align: center;
       padding: 0px 20px 0px;
     }
@@ -129,33 +129,33 @@
       animation: fadeIn 1s ease forwards;
       animation-delay: 0.5s;
     }
-	.hero2 p img {
+    .hero2 p img {
       width: 180px;
     }
-	.hero2 a {
+    .hero2 a {
       text-decoration: none
     }
     .previews {
       display: flex;
       justify-content: center;
-	  flex-wrap: wrap;
+      flex-wrap: wrap;
       gap: 30px;
       padding: 40px 20px;
-	  position: relative;
+      position: relative;
     }
-	.previews2 {
+    .previews2 {
       display: flex;
       justify-content: center;
-	  flex-wrap: wrap;
+      flex-wrap: wrap;
       gap: 30px;
       padding: 20px 20px;
-	  position: relative;
+      position: relative;
     }
-	.block {
+    .block {
       background: #000;
       width: 300px;
       height: 200px;
-	  overflow: hidden;
+      overflow: hidden;
       flex-shrink: 0;
       border-radius: 12px;
       transition: transform 0.3s ease;
@@ -164,12 +164,12 @@
       background: #000;
       width: 450px;
       height: 250px;
-	  overflow: hidden;
+      overflow: hidden;
       flex-shrink: 0;
       border-radius: 12px;
       transition: transform 0.3s ease;
     }
-	.block2 img {
+    .block2 img {
       width: 100%;
       height: 100%;
       border: none;
@@ -177,7 +177,7 @@
     .block2:hover {
       transform: scale(1.05);
     }
-	.block img {
+    .block img {
       width: 100%;
       height: 100%;
       border: none;
@@ -200,12 +200,138 @@
     footer p {
       font-size: 14px;
     }
-	footer img {
+    footer img {
       width: 24px;
     }
-	footer a {
+    footer a {
       text-decoration: none
     }
+    .page-title {
+      text-align: center;
+      margin: 6px 20px 30px;
+      transform: translateY(-10px);
+    }
+    .page-title h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.2s;
+      line-height: 0.95;
+    }
+    .page-title .muted {
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.5s;
+      color: black;
+    }
+
+    /* Основное изменение: контейнер для товаров */
+    .products-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      width: 100%;
+    }
+    
+    @media (max-width: 1000px) { 
+      .products-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+      } 
+    }
+    @media (max-width: 620px)  { 
+      .products-grid { 
+        grid-template-columns: 1fr; 
+      } 
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .18s ease, box-shadow .18s ease;
+      cursor: pointer;
+      min-height: 360px;
+      width: 100%; /* Добавлено */
+    }
+    .card:hover { 
+      transform: translateY(-6px); 
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12); 
+    }
+
+    .card .thumb {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .card .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .card .content {
+      padding: 14px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1 1 auto;
+    }
+
+    .card .title { 
+      font-weight: 700; 
+      font-size: 1.05rem; 
+      color: #111; 
+    }
+    .card .short-desc { 
+      font-size: 0.92rem; 
+      color: #333; 
+      opacity: .9; 
+      line-height: 1.2; 
+      max-height: 2.6em; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+    }
+
+    .price-row { 
+      display:flex; 
+      align-items:baseline; 
+      gap:10px; 
+      margin-top: auto; 
+    }
+    .price-current { 
+      color: #c41d1d; 
+      font-weight: 800; 
+      font-size: 1.1rem; 
+    }
+    .price-old { 
+      color: #666; 
+      text-decoration: line-through; 
+      font-size: .95rem; 
+    }
+    .availability { 
+      font-size: .86rem; 
+      color: #216e2a; 
+      padding-left: 4px; 
+    }
+    .availabilityout { 
+      font-size: .86rem; 
+      color: #9b1d1d; 
+      padding-left: 4px; 
+    }
+
   </style>
 </head>
 <body>
@@ -224,36 +350,96 @@
 
   <section class="hero">
     <h1>3D Мастерская</h1>
-    <p>Занимаемся 3D-печатью по технологии <b>FDM (Fused Deposition Modeling)</b> в г.Пермь и по всей России.<br>Разрабатываем модели в <b>«КОМПАС-3D»</b> и <b>«Blender»</b>, а также помогаем с их редактированием.<br><br><font color="#497559"><b>Обязательным условием для 3D-печати является наличие файла с 3D-моделью.</b></font><br> Если у вас есть готовая 3D-модель, тогда мы рассчитаем стоимость печати изделия по модели<br> и проверим ее на ошибки. Если модель отсутствует, но есть крутая идея, и вы хотите воплотить ee<br>в жизнь, то мы <b>создадим 3D-модель для вас по фото, чертежу, или даже простому текстовому описанию.</b></p><br>
-	<p><a href="https://t.me/dashone3d"><img src="../images/workshop/button.png" alt=Telegram></a></p>
+    <p>Занимаемся 3D-печатью по технологии <b>FDM (Fused Deposition Modeling)</b> в г.Пермь и по всей России.<br>Разрабатываем модели в <b>«КОМПАС-3D»</b> и <b>«Blender»</b>, а также помогаем с их редактированием.<br><br><font color="#497559"><b>Обязательным условием для 3D-печати является наличие файла с 3D-моделью.</b></font><br> Если у вас есть готовая 3D-модель, тогда мы рассчитаем стоимость печати изделия по модели<br> и проверим ее на ошибки. Если модель отсутствует, но есть крутая идея, и вы хотите воплотить ee<br>в жизнь, то мы <b>создадим 3D-модель для вас по фото, чертежу, или даже простому текстовому описанию.</b><br><br><font color="#497559"><b>А еще теперь вы можете заказать у нас готовые собранные устройства,<br>с проекта «DashOne» (Mac, DashBoard, PicoDoom и др).</b></font></p><br>
+    <p><a href="https://t.me/dashone3d"><img src="../images/workshop/button.png" alt=Telegram></a></p>
   </section>
   <section class="previews">
     <div class="block"><a href="../images/workshop/1.jpg"><img src="../images/workshop/1.jpg"></a></div>
-	<div class="block"><a href="../images/workshop/2.jpg"><img src="../images/workshop/2.jpg"></a></div>
+    <div class="block"><a href="../images/workshop/2.jpg"><img src="../images/workshop/2.jpg"></a></div>
     <div class="block"><a href="../images/workshop/3.jpg"><img src="../images/workshop/3.jpg"></a></div>
   </section>
     <section class="hero2">
     <p>Ознакомится с примерами наших работ вы можете на вкладке <a href="portfolio.html"><font color="#497559"><b>портфолио</b></font></a>,<br>а также вы можете ознакомится с <a href="feedback.html"><font color="#497559"><b>отзывами</b></font></a>.</b></p><br>
-	<h1>Прайс-лист</h1>
-	<p>Возможны неточности, наличие пластмассы определенного вида уточняйте при заказе.<br><b>Цены на создание и редактирование 3D моделей - индивидуальные!</b><br>Кликните, чтобы открыть изображение на весь экран.</p><br>
+    <h1>Прайс-лист</h1>
+    <p>Возможны неточности, наличие пластмассы определенного вида уточняйте при заказе.<br><b>Цены на создание и редактирование 3D моделей - индивидуальные!</b><br>Кликните, чтобы открыть изображение на весь экран.</p><br>
   </section>
   <section class="previews2">
     <div class="block2"><a href="../images/workshop/price.png"><img src="../images/workshop/price.png"></a></div>
   </section>
+  
   <section class="hero2">
     <p><font color="#497559"><b>Дарим скидку 10% на первый заказ :)</b></font><br>
   </section>
+  <br>
+  <section class="page-title">
+      <h1>Наши товары</h1>
+      <br>
+      <p class="muted"><b><i>100% ручная сборка!</i></b></p>
+  </section>
+  
+  <!-- Добавлен контейнер для сетки товаров -->
+  <div class="products-container">
+    <section class="products-grid" id="productsGrid">
+      <article class="card product-card">
+        <div class="thumb">
+          <img src="../images/workshop/6.png" alt="Macintosh 128K">
+        </div>
+        <div class="content">
+          <div class="title">Micro M 128K</div>
+          <div class="short-desc">Ретрокомпьютер в миниатюрном 3D-корпусе.</div>
+          <div class="price-row">
+            <div>
+              <span class="price-current">2899 ₽</span>
+              <span class="price-old muted">3299 ₽</span>
+            </div>
+            <div class="availability" style="margin-left:auto;">Есть в наличии</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card product-card">
+        <div class="thumb">
+          <img src="../images/workshop/31.png" alt="PicoDoom">
+        </div>
+        <div class="content">
+          <div class="title">PicoDM</div>
+          <div class="short-desc">Мини-консоль с 2.4&quot; экраном, запускающая известный FPS шутер из середины 90-х.</div>
+          <div class="price-row">
+            <div>
+              <span class="price-current">2499 ₽</span>
+              <span class="price-old muted">2899 ₽</span>
+            </div>
+            <div class="availabilityout" style="margin-left:auto;">Нет в наличии</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card product-card">
+        <div class="thumb">
+          <img src="../images/workshop/33.png" alt="DashBoard">
+        </div>
+        <div class="content">
+          <div class="title">DashBoard</div>
+          <div class="short-desc">Контроллер на базе RP2040 c функциональностью лаунчпада и стримдека.</div>
+          <div class="price-row">
+            <div>
+              <span class="price-current">2199 ₽</span>
+              <span class="price-old muted">2499 ₽</span>
+            </div>
+            <div class="availability" style="margin-left:auto;">Есть в наличии</div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </div>
+
   <footer>
     <hr>
-	<p>Адрес для коммерческих запросов и предложений: <a href="mailto:showshinich@gmail.com">showshinich@gmail.com</a></p>
-	<p>DashOne RU © 2025-2026</p>
+    <p>Адрес для коммерческих запросов и предложений: <a href="mailto:showshinich@gmail.com">showshinich@gmail.com</a></p>
+    <p>DashOne RU © 2025-2026</p>
       <a href="https://www.youtube.com/@dashoneru"><img src="../images/youtube.webp" alt="YouTube"></a>
-	  <a href="https://rutube.ru/channel/23543751/"><img src="../images/rutube.webp" alt="RuTube"></a>
+      <a href="https://rutube.ru/channel/23543751/"><img src="../images/rutube.webp" alt="RuTube"></a>
       <a href="https://t.me/dashone3d"><img src="../images/telegram.webp" alt="Telegram"></a>
   </footer>
 </body>
 </html>
-
-
-
-
