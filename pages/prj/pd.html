@@ -242,19 +242,24 @@
   </header>
 
   <section class="hero">
-    <h1>PicoDoom</h1>
-    <p>Мини-консоль с 2.4-дюймовым 320x240 экраном на контроллере ST7789V запускающая<br>легендарную игру «DOOM» 1993 года, в корпусе, напечатанном на 3D-принтере.<br> Прошивку и файлы 3D-модели можно скачать <a href="https://drive.google.com/file/d/1aAX2wlfx_KeYWsjRqOPhxTJBRwOtXHGT/view?usp=sharing"><b>здесь</b></a>.<br>Файл <i>«DOOM_ST7789_DO.uf2»</i> необходимо прошить в Raspberry Pi Pico,<br>файл игры<i>«doom1.whx»</i> прошить с помощью утилиты <b>picotool</b> по адресу 0x10040000.<br>Команда: <i>picotool load -v -t bin doom1.whx -o 0x10040000</i><br> Подробную сборку с комментариями смотрите на нашем <a href="https://youtu.be/zbIXdSReHoA"><b>YouTube-канале</b></a>.<br>Последнее обновление проекта: <b>02.09.25</b><br><br>Все названия и товарные знаки принадлежат их владельцам и используются<br>только в справочных и образовательных целях.</p>
+    <h1>Macintosh 128K</h1>
+    <p>Легендарный ретрокомпьютер от Apple в корпусе, напечатанном на 3D-принтере.<br>Проект основан на эмуляторе «umac». Прошивку и файл 3D-модели можно скачать <a href="https://drive.google.com/file/d/1lOQr6spaoHznMUlrvk7QKAQM4hJciTaS/view?usp=sharing"><b>здесь</b></a>.<br>Файл <i>«pico-mac-2048-378-VGA-640x480-0.0.6-4.uf2»</i> необходимо прошить в Raspberry Pi Pico,<br>образ диска <i>«umac0.img»</i> поместить на заранее отформатированную в FAT32 SD-карту.<br>Подробную сборку с комментариями смотрите на нашем <a href="https://www.youtube.com/watch?v=FBi9z8DZKIU"><b>YouTube-канале</b></a>.<br>Последнее обновление проекта: <b>12.09.25</b><br><br>Все названия и товарные знаки принадлежат их владельцам и используются<br>только в справочных и образовательных целях.</p>
   </section>
   <section class="previews2">
-    <div class="block2"><a href="pd/1.png"><img src="pd/1.png"></a></div>
-	<div class="block2"><a href="pd/2.png"><img src="pd/2.png"></a></div>
-    <div class="block2"><a href="pd/3.png"><img src="pd/3.png"></a></div>
+    <div class="block2"><a href="mac/1.png"><img src="mac/1.png"></a></div>
+	<div class="block2"><a href="mac/2.png"><img src="mac/2.png"></a></div>
+    <div class="block2"><a href="mac/3.png"><img src="mac/3.png"></a></div>
+  </section>
+  <section class="previews2">
+    <div class="block2"><a href="mac/4.png"><img src="mac/4.png"></a></div>
+	<div class="block2"><a href="mac/5.png"><img src="mac/5.png"></a></div>
   </section>
    <section class="hero2">
-    <p><b>Cхема:</b></p>
+    <p><b>Cхемы (1ая и 2ая ревизия):</b></p>
   </section>
   <section class="previews2">
-    <div class="block"><a href="pd/dmscheme.png"><img src="pd/dmscheme.png"></a></div>
+    <div class="block"><a href="mac/macscheme.png"><img src="mac/macscheme.png"></a></div>
+    <div class="block"><a href="mac/macscheme2.png"><img src="mac/macscheme2.png"></a></div>
   </section>
   <section class="hero2">
     <p>Если у Вас нет 3D-принтера, то Вы всегда можете заказать печать модели<br>в нашей <a href="../3dworkshop.html"><b>мастерской</b>.</a></p><br>
@@ -262,8 +267,9 @@
   </section>
     <section class="hero2">
     <p><b>Credits:</b></p>
-	<p><b>RP2040 DOOM kilograham</b><br><a href="https://github.com/kilograham/rp2040-doom">https://github.com/kilograham/rp2040-doom</a></p>
-	<p><b>RP2040 DOOM ILI9341 pondahai</b><br><a href="https://github.com/pondahai/rp2040-doom-ili9341">https://github.com/pondahai/rp2040-doom-ili9341</a></p>
+	<p><b>Murmulator pico-mac</b><br><a href="https://murmulator.ru/pico-mac">https://murmulator.ru/pico-mac</a></p>
+	<p><b>Pico-umac original port</b><br><a href="https://github.com/evansm7/pico-mac">https://github.com/evansm7/pico-mac</a></p>
+	<p><b>Murmulator port by Mike V73</b><br><a href="https://t.me/Michael_V1973">https://t.me/Michael_V1973</a></p>
   </section> 
   <footer>
     <hr>
